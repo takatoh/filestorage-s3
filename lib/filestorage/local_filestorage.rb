@@ -33,6 +33,12 @@ module Filestorage
       File.open(fullpath, "rb")
     end
 
+    def delete(path)
+      fullpath = @base_dir + path
+      FileUtils.rm(fullpath)
+      path
+    end
+
   end   # of class LocalFilestorage
 
 end   # of module LocalFilestorage
