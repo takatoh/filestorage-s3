@@ -39,6 +39,11 @@ module Filestorage
       path
     end
 
+    def exist?(path)
+      fullpath = @base_dir + path
+      File.exist?(fullpath)
+    end
+
   end   # of class LocalFilestorage
 
 end   # of module LocalFilestorage
