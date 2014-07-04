@@ -13,6 +13,7 @@ module Filestorage
 
     def store(path, file)
       fullpath = @base_dir + path
+      raise AlreadyExist.new("Already exist #{path}") if File.exist?(fullpath)
       FileUtils.mkdir_p(fullpath.parent)
       if file.instance_of?(Pathname)
         FileUtils.cp(file, fullpath)
@@ -30,11 +31,13 @@ module Filestorage
 
     def get(path)
       fullpath = @base_dir + path
+      raise NotExist.new("Not exist #{path}") unless File.exist?(fullpath)
       File.open(fullpath, "rb")
     end
 
     def delete(path)
       fullpath = @base_dir + path
+      raise NotExist.new("Not exist #{path}") unless File.exist?(fullpath)
       FileUtils.rm(fullpath)
       path
     end
