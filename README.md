@@ -1,6 +1,6 @@
 # Filestorage
 
-TODO: Write a gem description
+A simple file storage.
 
 ## Installation
 
@@ -18,11 +18,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create a instance.
+
+    require 'filestorage'
+    storage = Filesotrage::LocalFilesotrage.new(base_dir)
+
+Store a file to path.
+
+    storage.store("foo/bar/baz.txt", file)
+
+And get the file. `get' method returns instance of File class.
+
+    file = storage.get("foo/bar/baz.txt")
+    content = file.read
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/filestorage/fork )
+1. Fork it ( https://github.com/takatoh/filestorage/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
