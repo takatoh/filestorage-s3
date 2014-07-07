@@ -5,7 +5,7 @@ require 'aws'
 
 module Filestorage
 
-  class S3Filestorage
+  class AmazonS3
   
     def initialize(bucket, access_key_id, secret_access_key)
       @s3 = AWS::S3.new(:access_key_id     => access_key_id,
@@ -45,6 +45,6 @@ module Filestorage
       obj.exists?
     end
 
-  end   # of class S3Filestorage
+  end   # of class AmazonS3
 
 end   # of module Filestorag
