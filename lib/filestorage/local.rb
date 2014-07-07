@@ -5,7 +5,7 @@ require 'fileutils'
 
 module Filestorage
 
-  class LocalFilestorage
+  class Local
   
     def initialize(base_dir)
       @base_dir = Pathname.new(base_dir)
@@ -47,6 +47,6 @@ module Filestorage
       File.exist?(fullpath)
     end
 
-  end   # of class LocalFilestorage
+  end   # of class Local
 
 end   # of module LocalFilestorage
