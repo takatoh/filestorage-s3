@@ -21,7 +21,7 @@ Or install it yourself as:
 Create a instance.
 
     require 'filestorage'
-    storage = Filesotrage::LocalFilesotrage.new(base_dir)
+    storage = Filesotrage::Local.new(base_dir)
 
 Store a file to path.
 
