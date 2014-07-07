@@ -1,5 +1,5 @@
 require "filestorage/version"
-require "filestorage/local_filestorage"
+require "filestorage/local"
 require "filestorage/s3_filestorage"
 
 module Filestorage
