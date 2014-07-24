@@ -2,6 +2,8 @@
 
 require 'pathname'
 require 'fileutils'
+require 'find'
+
 
 module Filestorage
 
@@ -45,6 +47,15 @@ module Filestorage
     def exist?(path)
       fullpath = @base_dir + path
       File.exist?(fullpath)
+    end
+
+    def files
+      files = []
+      Find.find(@base_dir.to_s) do |f|
+        f = Pathname.new(f)
+        files << f.relative_path_from(@base_dir).to_s if f.file?
+      end
+      files
     end
 
   end   # of class Local
