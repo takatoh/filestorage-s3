@@ -45,6 +45,14 @@ module Filestorage
       obj.exists?
     end
 
+    def files
+      files = []
+      @bucket.objects.each do |obj|
+        files << obj.key
+      end
+      files
+    end
+
   end   # of class AmazonS3
 
 end   # of module Filestorag
