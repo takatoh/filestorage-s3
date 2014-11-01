@@ -37,10 +37,11 @@ module Filestorage
       File.open(fullpath, "rb")
     end
 
-    def delete(path)
+    def delete(path, delete_dir: false)
       fullpath = @base_dir + path
       raise NotExist.new("Not exist #{path}") unless File.exist?(fullpath)
       FileUtils.rm(fullpath)
+      sweep(fullpath.parent) if delete_dir
       path
     end
 
@@ -57,6 +58,23 @@ module Filestorage
       end
       files
     end
+
+    private
+
+      def sweep(path)
+        paths(path).reverse.each do |p|
+          FileUtils.rmdir(p) if p.children.empty?
+        end
+      end
+
+      def paths(path)
+        p = []
+        until path.to_s == @base_dir.to_s
+          p << path
+          path = path.parent
+        end
+        p.reverse
+      end
 
   end   # of class Local
 
