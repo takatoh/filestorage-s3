@@ -5,7 +5,7 @@ require 'filestorage-s3/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "filestorage-s3"
-  spec.version       = Filestorage::VERSION
+  spec.version       = Filestorage::S3_VERSION
   spec.authors       = ["takatoh"]
   spec.email         = ["takatoh.m@gmail.com"]
   spec.summary       = %q{A simple file storeage of Amazon S3.}
