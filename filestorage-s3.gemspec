@@ -21,4 +21,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "aws-sdk"
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "filestorage", ">= 0.1.0"
 end
