@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+require 'filestorage'
 require 'aws'
 
 
@@ -55,4 +56,4 @@ module Filestorage
 
   end   # of class AmazonS3
 
-end   # of module Filestorag
+end   # of module Filestorage
